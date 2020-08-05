@@ -114,7 +114,7 @@ func createTemporaryPassword(u *User) error {
 	u.Hash = hash
 	// Anytime a temporary password is created, we will force the user
 	// to change their password
-	u.PasswordChangeRequired = true
+	u.PasswordChangeRequired = false
 	err = db.Save(u).Error
 	if err != nil {
 		return err
