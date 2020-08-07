@@ -27,7 +27,7 @@ RUN apt-get update && \
 	apt-get install --no-install-recommends -y jq libcap2-bin && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN apt-get install iputils-ping
+
 
 WORKDIR /opt/gophish
 COPY --from=build-golang /go/src/github.com/gophish/gophish/ ./
