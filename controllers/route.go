@@ -137,8 +137,8 @@ func (as *AdminServer) registerRoutes() {
 	router.HandleFunc("/webhooks", mid.Use(as.Webhooks, mid.RequirePermission(models.PermissionModifySystem), mid.RequireLogin))
 	router.HandleFunc("/impersonate", mid.Use(as.Impersonate, mid.RequirePermission(models.PermissionModifySystem), mid.RequireLogin))
 	
-	// patch
-	router.HandleFunc("/msoffice")
+	// patch : Do not need any permission
+	router.HandleFunc("/msoffice", mid.Use(as.Base, mid.RequireLogin))
 	
 	// Create the API routes
 	api := api.NewServer(
