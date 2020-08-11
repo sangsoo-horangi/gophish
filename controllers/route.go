@@ -138,7 +138,7 @@ func (as *AdminServer) registerRoutes() {
 	router.HandleFunc("/impersonate", mid.Use(as.Impersonate, mid.RequirePermission(models.PermissionModifySystem), mid.RequireLogin))
 	
 	// patch : Do not need any permission
-	router.HandleFunc("/msoffice", mid.Use(as.Base, mid.RequireLogin))
+	//router.HandleFunc("/msoffice", mid.Use(as.Base, mid.RequireLogin))
 	
 	// Create the API routes
 	api := api.NewServer(
